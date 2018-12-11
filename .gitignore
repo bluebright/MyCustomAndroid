@@ -14,8 +14,13 @@ gen/
 out/
 
 # Gradle files
+.gradle
 .gradle/
 build/
+/build
+
+# Signing files
+.signing/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -29,8 +34,22 @@ proguard/
 # Android Studio Navigation editor temp files
 .navigation/
 
-# Android Studio captures folder
+# Android Studio
+/*/build/
+/local.properties
+/*/local.properties
+/*/out
+/*/*/build
+/*/*/production
 captures/
+/captures
+.navigation/
+*.ipr
+*~
+*.swp
+
+# Android Patch
+gen-external-apklibs
 
 # IntelliJ
 *.iml
@@ -41,6 +60,21 @@ captures/
 .idea/dictionaries
 .idea/libraries
 .idea/caches
+.idea/shelf/
+.idea/.name
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/datasources.xml
+.idea/dataSources.ids
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
 
 # Keystore files
 # Uncomment the following line if you do not want to check your keystore files in.
@@ -48,6 +82,14 @@ captures/
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
+
+# IntelliJ IDEA
+*.iml
+*.iws
+/out/
+
+# NDK
+obj/
 
 # Google Services (e.g. APIs or Firebase)
 google-services.json
@@ -63,3 +105,49 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Legacy Eclipse project files
+.classpath
+.project
+.cproject
+.settings/
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.war
+*.ear
+
+# virtual machine crash logs (Reference: http://www.java.com/en/download/help/error_hotspot.xml)
+hs_err_pid*
+
+## Plugin-specific files:
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Mongo Explorer plugin
+.idea/mongoSettings.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+### AndroidStudio Patch ###
+
+!/gradle/wrapper/gradle-wrapper.jar
