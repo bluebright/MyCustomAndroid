@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -16,6 +17,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.tedpark.tedpermission.rx2.TedRx2Permission;
+
+import java.io.File;
 
 import kr.co.bluebright.www.myexperiment.app.MyApplication;
 import kr.co.bluebright.www.myexperiment.databinding.ActivityMainBinding;
@@ -52,40 +55,60 @@ public class MainActivity extends AppCompatActivity
         binding.navView.setNavigationItemSelectedListener(this);
 
 
-        contentMainBinding.btnCheckGps.setOnClickListener(v -> {
-            TedRx2Permission.with(this)
-                    .setDeniedMessage(R.string.location_permission_denied_message)
-                    .setPermissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
-                    .request()
-                    .subscribe(tedPermissionResult -> {
-                        if (tedPermissionResult.isGranted()) {
-                            if (application.locationHandler.isGpsEnabled()) {
-                                Toast.makeText(MainActivity.this,
-                                        R.string.string_gps_enabled,
-                                        Toast.LENGTH_SHORT)
-                                        .show();
-                            } else {
-                                application.locationHandler.startGpsSettingActivity(MainActivity.this, ACTIVITY_RESULT_GPS);
-                            }
-                        } else {
+        contentMainBinding.btnCheckGps.setOnClickListener(v -> TedRx2Permission.with(this)
+                .setDeniedMessage(R.string.location_permission_denied_message)
+                .setPermissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
+                .request()
+                .subscribe(tedPermissionResult -> {
+                    if (tedPermissionResult.isGranted()) {
+                        if (application.locationHandler.isGpsEnabled()) {
                             Toast.makeText(MainActivity.this,
-                                    R.string.string_permission_denied,
+                                    R.string.string_gps_enabled,
                                     Toast.LENGTH_SHORT)
                                     .show();
+                        } else {
+                            application.locationHandler.startGpsSettingActivity(MainActivity.this, ACTIVITY_RESULT_GPS);
                         }
+                    } else {
+                        Toast.makeText(MainActivity.this,
+                                R.string.string_permission_denied,
+                                Toast.LENGTH_SHORT)
+                                .show();
+                    }
 
-                    }, Throwable::printStackTrace);
-        });
+                }, Throwable::printStackTrace));
 
-        contentMainBinding.btnToggleWifi.setOnClickListener(v -> {
+        contentMainBinding.btnToggleWifi.setOnClickListener(v -> TedRx2Permission.with(this)
+                .setDeniedMessage(R.string.wifi_permission_denied_message)
+                .setPermissions(Manifest.permission.ACCESS_WIFI_STATE, Manifest.permission.CHANGE_WIFI_STATE)
+                .request()
+                .subscribe(tedPermissionResult -> {
+                    if (tedPermissionResult.isGranted()) {
+                        Pair<Integer, Boolean> networkPair = application.networkHandler.getNetworkTypeAndState();
+                        application.networkHandler.turnWiFi(!networkPair.second);
+                    } else {
+                        Toast.makeText(MainActivity.this,
+                                R.string.string_permission_denied,
+                                Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                }, Throwable::printStackTrace));
+
+        contentMainBinding.btnCheckFileList.setOnClickListener(v -> {
+            contentMainBinding.txtCheckFileListResult.setText("");
+
             TedRx2Permission.with(this)
-                    .setDeniedMessage(R.string.wifi_permission_denied_message)
-                    .setPermissions(Manifest.permission.ACCESS_WIFI_STATE, Manifest.permission.CHANGE_WIFI_STATE)
+                    .setDeniedMessage(R.string.storage_permission_denied_message)
+                    .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
                     .request()
                     .subscribe(tedPermissionResult -> {
                         if (tedPermissionResult.isGranted()) {
-                            Pair<Integer, Boolean> networkPair = application.networkHandler.getNetworkTypeAndState();
-                            application.networkHandler.turnWiFi(!networkPair.second);
+                            int numberOfFile = checkFileArrayInDirectory();
+
+                            contentMainBinding.txtCheckFileListResult.setText((numberOfFile >= 0)
+                                    ? getString(R.string.string_print_number_of_file_list, numberOfFile)
+                                    : getString(R.string.error_unknown_occur)
+                            );
                         } else {
                             Toast.makeText(MainActivity.this,
                                     R.string.string_permission_denied,
@@ -159,10 +182,34 @@ public class MainActivity extends AppCompatActivity
         switch (requestCode) {
             case ACTIVITY_RESULT_GPS:
                 Toast.makeText(MainActivity.this,
-                        getString(R.string.string_current_gps_state) + application.locationHandler.isGpsEnabled(),
+                        //getString(R.string.string_current_gps_state) + application.locationHandler.isGpsEnabled(),
+                        getString(R.string.string_current_gps_state2, application.locationHandler.isGpsEnabled()),
                         Toast.LENGTH_SHORT)
                         .show();
                 break;
         }
     }
+
+    private int checkFileArrayInDirectory() {
+
+        try {
+            String state = Environment.getExternalStorageState();
+            if (!Environment.MEDIA_MOUNTED.equals(state)) {
+                return -1;
+            }
+
+            //Get current device "Download" path
+            File downloadLocation = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+
+            File[] fileArray = downloadLocation.listFiles();
+
+            return fileArray.length;
+
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            return -2;
+        }
+
+    }
+
 }
