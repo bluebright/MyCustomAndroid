@@ -37,4 +37,6 @@ dependencies {
     implementation 'joda-time:joda-time:2.10'
     implementation 'gun0912.ted:tedpermission:2.2.2'
     implementation 'gun0912.ted:tedpermission-rx2:2.2.2'
+    implementation 'com.facebook.fresco:fresco:1.11.0'
+    implementation 'com.facebook.fresco:webpsupport:1.11.0'
 }

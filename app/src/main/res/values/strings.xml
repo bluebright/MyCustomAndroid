@@ -1,4 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <resources>
+    <string name="author" translatable="false">BlueBright</string>
     <string name="app_name">MyExperiment</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -10,10 +13,17 @@
 
     <string name="string_button_check_gps">Check GPS</string>
     <string name="string_button_toggle_wifi">Toggle Wi-Fi</string>
+    <string name="string_button_check_file_list">Check how many file in "Download" folder</string>
     <string name="string_gps_enabled">GPS enabled!</string>
     <string name="string_current_gps_state">Current GPS state : </string>
+    <string name="string_current_gps_state2">Current GPS state : %1$b</string>
+    <string name="string_print_number_of_file_list">%1$d file(s) in list</string>
 
     <string name="location_permission_denied_message">If you reject permission, you can not use location service\n\nPlease turn on permissions at [Setting] > [Permission]</string>
     <string name="string_permission_denied">Permission denied!</string>
     <string name="wifi_permission_denied_message">If you reject permission, you can not use Wi-Fi service\n\nPlease turn on permissions at [Setting] > [Permission]</string>
+    <string name="storage_permission_denied_message">If you reject permission, you can not use storage service\n\nPlease turn on permissions at [Setting] > [Permission]</string>
+
+    <string name="error_unknown_occur">Unknown error occur</string>
+
 </resources>
