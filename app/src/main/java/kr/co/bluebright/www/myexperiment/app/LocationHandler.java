@@ -25,9 +25,9 @@ public class LocationHandler {
         return isManagerValid() && locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
     }
 
-    public void startGpsSettingActivity(Activity activity, int resultCode){
+    public void startGpsSettingActivity(Activity activity, int requestCode){
         Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
         intent.addCategory(Intent.CATEGORY_DEFAULT);
-        activity.startActivityForResult(intent, resultCode);
+        activity.startActivityForResult(intent, requestCode);
     }
 }

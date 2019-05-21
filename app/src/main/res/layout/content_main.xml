@@ -3,11 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity"
         tools:showIn="@layout/activity_main">
+
+        <TextView
+            android:id="@+id/txt_app_build_type"
+            android:layout_width="0dp"
+            android:layout_margin="8dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/app_build_type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn_check_gps"
@@ -18,7 +29,7 @@
             android:text="@string/string_button_check_gps"
             app:layout_constraintEnd_toStartOf="@+id/btn_toggle_wifi"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_app_build_type" />
 
         <Button
             android:id="@+id/btn_toggle_wifi"
@@ -29,7 +40,7 @@
             android:text="@string/string_button_toggle_wifi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_check_gps"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_app_build_type" />
 
         <Button
             android:id="@+id/btn_check_file_list"
@@ -50,5 +61,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_check_file_list" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

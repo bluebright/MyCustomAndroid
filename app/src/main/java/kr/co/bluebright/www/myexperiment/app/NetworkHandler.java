@@ -4,8 +4,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
-import android.support.annotation.IntDef;
-import android.support.v4.util.Pair;
+import androidx.annotation.IntDef;
+import androidx.core.util.Pair;
 import android.util.Log;
 
 import java.lang.annotation.Retention;

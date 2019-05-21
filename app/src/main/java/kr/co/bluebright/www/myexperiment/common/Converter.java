@@ -1,6 +1,6 @@
 package kr.co.bluebright.www.myexperiment.common;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
