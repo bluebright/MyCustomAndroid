@@ -1,4 +1,4 @@
-package kr.co.bluebright.www.myexperiment;
+package kr.co.bluebright.www.myexperiment.intro;
 
 import android.content.Intent;
 import androidx.databinding.DataBindingUtil;
@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.concurrent.TimeUnit;
 
+import kr.co.bluebright.www.myexperiment.main.MainActivity;
+import kr.co.bluebright.www.myexperiment.R;
 import kr.co.bluebright.www.myexperiment.databinding.ActivitySplashBinding;
 
 public class SplashActivity extends AppCompatActivity {

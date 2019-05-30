@@ -1,4 +1,4 @@
-package kr.co.bluebright.www.myexperiment.app;
+package kr.co.bluebright.www.myexperiment.core;
 
 import android.app.Activity;
 import android.content.Context;

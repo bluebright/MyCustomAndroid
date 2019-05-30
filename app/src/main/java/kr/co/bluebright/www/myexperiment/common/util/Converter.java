@@ -1,4 +1,4 @@
-package kr.co.bluebright.www.myexperiment.common;
+package kr.co.bluebright.www.myexperiment.common.util;
 
 import androidx.annotation.Nullable;
 

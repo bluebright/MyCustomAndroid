@@ -1,4 +1,4 @@
-package kr.co.bluebright.www.myexperiment;
+package kr.co.bluebright.www.myexperiment.main;
 
 import android.Manifest;
 import android.content.Intent;
@@ -21,7 +21,8 @@ import com.tedpark.tedpermission.rx2.TedRx2Permission;
 
 import java.io.File;
 
-import kr.co.bluebright.www.myexperiment.app.MyApplication;
+import kr.co.bluebright.www.myexperiment.R;
+import kr.co.bluebright.www.myexperiment.core.MyApplication;
 import kr.co.bluebright.www.myexperiment.databinding.ActivityMainBinding;
 import kr.co.bluebright.www.myexperiment.databinding.ContentMainBinding;
 

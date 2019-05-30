@@ -1,4 +1,4 @@
-package kr.co.bluebright.www.myexperiment.app;
+package kr.co.bluebright.www.myexperiment.core;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.os.Build;
 
 import java.util.Locale;
 
-import kr.co.bluebright.www.myexperiment.pref.PreferenceController;
+import kr.co.bluebright.www.myexperiment.common.util.PreferenceController;
 
 /**
  * Attach context that language option
