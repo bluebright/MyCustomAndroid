@@ -6,6 +6,10 @@ import android.content.ContextWrapper;
 import android.content.res.Configuration;
 import android.os.Build;
 
+import androidx.annotation.StringDef;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.Locale;
 
 import kr.co.bluebright.www.myexperiment.common.util.PreferenceController;
@@ -16,6 +20,17 @@ import kr.co.bluebright.www.myexperiment.common.util.PreferenceController;
 public class LanguageContextWrapper //extends ContextWrapper
 {
     public static final String TAG = LanguageContextWrapper.class.getSimpleName();
+
+    public static final String LANGUAGE_KOREAN = "ko";
+    public static final String LANGUAGE_ENGLISH = "en";
+    public static final String LANGUAGE_CHINA = "zh";
+
+    @StringDef({LANGUAGE_KOREAN,
+            LANGUAGE_ENGLISH,
+            LANGUAGE_CHINA})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface LANGUAGE {
+    }
 
     /*public LanguageContextWrapper(Context context) {
         super(context);
@@ -32,7 +47,7 @@ public class LanguageContextWrapper //extends ContextWrapper
      * @see Locale
      */
     public static Context wrap(Context context) {
-        PreferenceController mPreferenceController = new PreferenceController(context.getApplicationContext(), KeyConstants.KEY_PREF_LANGUAGE);
+        PreferenceController mPreferenceController = new PreferenceController(context.getApplicationContext(), null, Context.MODE_PRIVATE);
         Configuration config = context.getResources().getConfiguration();
         Locale sysLocale;
 

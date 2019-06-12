@@ -19,6 +19,8 @@ public class ChildActivity extends BaseActivity {
 
         binding = putContentView(R.layout.activity_child);
 
+        backPressedAppExit = false;
+
         setTitle(BaseActivity.class.getSimpleName());
     }
 

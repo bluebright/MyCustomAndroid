@@ -16,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import java.util.concurrent.TimeUnit;
 
 import kr.co.bluebright.www.myexperiment.R;
+import kr.co.bluebright.www.myexperiment.core.LanguageContextWrapper;
 import kr.co.bluebright.www.myexperiment.databinding.ActivityBaseBinding;
 
 
@@ -31,6 +32,12 @@ public class BaseActivity extends AppCompatActivity {
 
     protected boolean backPressedAppExit = false;
 
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        Context context = LanguageContextWrapper.wrap(newBase);
+        super.attachBaseContext(context);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
