@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+
+    <color name="red_a0351d">#a0351d</color>
+    <color name="red_f70400">#f70400</color>
+
+    <color name="pink_d3aea8">#d3aea8</color>
+
+    <color name="brown_862d19">#862d19</color>
+
+    <color name="blue_0619f8">#0619f8</color>
+
+    <color name="green_008577">#008577</color>
+    <color name="green_00574B">#00574B</color>
+    <color name="green_D81B60">#D81B60</color>
+
+    <color name="gray_515151">#515151</color>
+    <color name="gray_555555">#555555</color>
+    <color name="gray_757575">#757575</color>
+    <color name="gray_777777">#777777</color>
+    <color name="gray_aaaaaa">#aaaaaa</color>
+    <color name="gray_cccccc">#cccccc</color>
+    <color name="gray_e5e5e5">#e5e5e5</color>
+    <color name="gray_f5f5f5">#f5f5f5</color>
+
+    <color name="black_cc000000">#cc000000</color>
+
+    <color name="colorPrimary">@color/green_008577</color>
+    <color name="colorPrimaryDark">@color/green_00574B</color>
+    <color name="colorAccent">@color/green_D81B60</color>
+
+    <color name="no_image">@color/gray_cccccc</color>
+    <color name="bottom_navigation_bar">@color/gray_f5f5f5</color>
+    <color name="bottom_navigation_bar_border">@color/gray_e5e5e5</color>
+
 </resources>

@@ -2,7 +2,6 @@ package kr.co.bluebright.www.myexperiment.core;
 
 import android.app.Application;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
 
 public class MyApplication extends Application {
 
@@ -13,7 +12,6 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Fresco.initialize(this);
 
         networkHandler = new NetworkHandler(this);
         locationHandler = new LocationHandler(this);

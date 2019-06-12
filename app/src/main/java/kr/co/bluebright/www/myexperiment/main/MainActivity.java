@@ -120,6 +120,10 @@ public class MainActivity extends AppCompatActivity
                     }, Throwable::printStackTrace);
         });
 
+
+        contentMainBinding.btnLauchChildActivity.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, ChildActivity.class));
+        });
     }
 
     @Override

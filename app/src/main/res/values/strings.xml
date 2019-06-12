@@ -27,4 +27,9 @@
 
     <string name="error_unknown_occur">Unknown error occur</string>
 
+
+    <!--Base Activity-->
+    <string name="msg_app_exit_click_one_time_more">Click one time more to close app</string>
+
+
 </resources>
