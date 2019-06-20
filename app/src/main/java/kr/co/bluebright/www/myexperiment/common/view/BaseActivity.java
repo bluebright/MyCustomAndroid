@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 import kr.co.bluebright.www.myexperiment.R;
 import kr.co.bluebright.www.myexperiment.core.LanguageContextWrapper;
+import kr.co.bluebright.www.myexperiment.core.MyApplication;
 import kr.co.bluebright.www.myexperiment.databinding.ActivityBaseBinding;
 
 
@@ -26,8 +27,9 @@ public class BaseActivity extends AppCompatActivity {
     private static final long BACK_PRESS_TIME_INTERVAL = TimeUnit.SECONDS.toMillis(2);
     private long mBackPressedTime;
 
-    protected Context applicationContext;
+    protected Context appContext;
     protected ActivityBaseBinding baseBinding;
+    protected MyApplication myApplication;
     protected DrawerLayout endSideDrawerLayout;
 
     protected boolean backPressedAppExit = false;
@@ -45,7 +47,9 @@ public class BaseActivity extends AppCompatActivity {
 
         baseBinding = DataBindingUtil.setContentView(this, R.layout.activity_base);
 
-        applicationContext = getApplicationContext();
+        myApplication = MyApplication.getInstance();
+
+        appContext = myApplication.getContextFromApp();
 
         Toolbar reverseToolbar = baseBinding.reverseToolbar.reverseToolbarBody;
         setSupportActionBar(reverseToolbar);

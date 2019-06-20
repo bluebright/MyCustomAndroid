@@ -1,10 +1,5 @@
 package kr.co.bluebright.www.myexperiment.core;
 
-import androidx.annotation.StringDef;
-
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-
 public class KeyConstants {
 
     public static final String TAG_TITLE_MY_EXPERIMENT = "kr.co.bluebright.www.myexperiment";
@@ -22,15 +17,4 @@ public class KeyConstants {
     public static final String KEY_LANGUAGE
             = TAG_TITLE_MY_EXPERIMENT + TAG_KEY + "LANGUAGE";
 
-
-    public static final String LANGUAGE_KOREAN = "ko";
-    public static final String LANGUAGE_ENGLISH = "en";
-    public static final String LANGUAGE_CHINA = "zh";
-
-    @StringDef({LANGUAGE_KOREAN,
-            LANGUAGE_ENGLISH,
-            LANGUAGE_CHINA})
-    @Retention(RetentionPolicy.SOURCE)
-    public @interface LANGUAGE {
-    }
 }

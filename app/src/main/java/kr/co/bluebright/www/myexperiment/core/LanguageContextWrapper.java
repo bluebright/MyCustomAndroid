@@ -19,7 +19,7 @@ import kr.co.bluebright.www.myexperiment.common.util.PreferenceController;
  */
 public class LanguageContextWrapper //extends ContextWrapper
 {
-    public static final String TAG = LanguageContextWrapper.class.getSimpleName();
+    private static final String TAG = LanguageContextWrapper.class.getSimpleName();
 
     public static final String LANGUAGE_KOREAN = "ko";
     public static final String LANGUAGE_ENGLISH = "en";

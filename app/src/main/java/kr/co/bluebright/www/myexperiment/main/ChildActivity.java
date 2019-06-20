@@ -21,7 +21,7 @@ public class ChildActivity extends BaseActivity {
 
         backPressedAppExit = false;
 
-        setTitle(BaseActivity.class.getSimpleName());
+        setTitle(ChildActivity.class.getSimpleName());
     }
 
     @Override

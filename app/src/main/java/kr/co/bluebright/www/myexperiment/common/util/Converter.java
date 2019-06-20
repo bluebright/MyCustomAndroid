@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class Converter {
 
@@ -203,6 +204,8 @@ public class Converter {
     //endregion
 
 
+    //region Convert hex String to byte
+
     /**
      * Convert string value of hexadecimal value to byte array value
      *
@@ -246,6 +249,17 @@ public class Converter {
             return null;
         }
     }
+
+
+    //endregion
+
+
+
+    public static String milliSeconds_To_Second(long time) {
+        return TimeUnit.MILLISECONDS.toSeconds(time) - TimeUnit.MILLISECONDS.toMinutes(time) * 60 + "";
+    }
+
+
 
     /*
      * Convert {@code ArrayList<Byte>} to byte array
