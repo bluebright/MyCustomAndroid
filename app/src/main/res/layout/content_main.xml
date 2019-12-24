@@ -62,12 +62,22 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_check_file_list" />
 
         <Button
-            android:id="@+id/btn_lauch_child_activity"
+            android:id="@+id/btn_launch_child_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:text="@string/btn_launch_child_activity"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_check_file_list_result" />
+
+        <Button
+            android:id="@+id/btn_launch_edit_text_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/btn_launch_edit_text_activity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_launch_child_activity" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

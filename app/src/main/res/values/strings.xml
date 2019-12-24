@@ -25,16 +25,31 @@
     <string name="wifi_permission_denied_message">If you reject permission, you can not use Wi-Fi service\n\nPlease turn on permissions at [Setting] > [Permission]</string>
     <string name="storage_permission_denied_message">If you reject permission, you can not use storage service\n\nPlease turn on permissions at [Setting] > [Permission]</string>
 
-    <string name="error_unknown_occur">Unknown error occur</string>
+    <string name="btn_launch_child_activity">Show Child Activity</string>
+    <string name="btn_launch_edit_text_activity">Show EditText Activity</string>
 
 
     <!--Base Activity-->
     <string name="msg_app_exit_click_one_time_more">Click one time more to close app</string>
 
 
+    <!--Child Activity-->
+    <string name="title_activity_child">Child Activity</string>
 
+    <!-- EditText Activity -->
+    <string name="title_activity_edit">EditText Activity</string>
+    <string name="string_title_edit_1">Just Edit Text</string>
+    <string name="hint_text">Ex) Text input</string>
+    <string name="string_title_edit_2">Input Hexadecimal</string>
+    <string name="hint_hexadecimal">Ex) ac0A4D</string>
+
+
+    <!--Common-->
     <string name="string_common_wifi">Wi-Fi</string>
     <string name="string_common_bluetooth">Bluetooth</string>
-
+    <string name="string_confirm">Confirm</string>
     <string name="string_sample_dummy">Dummy</string>
+
+    <string name="error_unknown_occur">Unknown error occur</string>
+
 </resources>

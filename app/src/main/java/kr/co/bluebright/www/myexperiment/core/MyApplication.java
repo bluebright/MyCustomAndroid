@@ -33,4 +33,5 @@ public class MyApplication extends Application {
     public Context getContextFromApp() {
         return getApplicationContext();
     }
+
 }

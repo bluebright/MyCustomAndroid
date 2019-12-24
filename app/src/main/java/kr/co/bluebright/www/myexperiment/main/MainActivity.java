@@ -121,8 +121,12 @@ public class MainActivity extends AppCompatActivity
         });
 
 
-        contentMainBinding.btnLauchChildActivity.setOnClickListener(v -> {
+        contentMainBinding.btnLaunchChildActivity.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, ChildActivity.class));
+        });
+
+        contentMainBinding.btnLaunchEditTextActivity.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, EditTextActivity.class));
         });
     }
 

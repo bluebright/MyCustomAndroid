@@ -19,7 +19,9 @@ import kr.co.bluebright.www.myexperiment.custom_wifi.item.CustomWifiItem;
 import kr.co.bluebright.www.myexperiment.databinding.ItemCustomBluetoothBinding;
 import kr.co.bluebright.www.myexperiment.databinding.ItemCustomWifiBinding;
 
+
 public class MyCustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
 
     public static final int CUSTOM_VIEW_TYPE_WIFI = 0;
     public static final int CUSTOM_VIEW_TYPE_BLUETOOTH = 1;

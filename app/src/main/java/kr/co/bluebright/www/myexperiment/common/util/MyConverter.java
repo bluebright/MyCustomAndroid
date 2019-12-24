@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-public class Converter {
+public class MyConverter {
 
     private static final int SIGNED_24_BIT_MIN = -8388608;
 
