@@ -5,13 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
 
-public class LocationHandler {
+public class MyLocationManager {
 
     private LocationManager locationManager;
     private boolean managerValid;
 
 
-    LocationHandler(Context context){
+    MyLocationManager(Context context){
         locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
 
         managerValid = locationManager != null;

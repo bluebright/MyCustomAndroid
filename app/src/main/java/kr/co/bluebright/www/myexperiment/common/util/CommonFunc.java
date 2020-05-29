@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
 import android.net.Uri;
+
 import androidx.annotation.AnyRes;
 import androidx.annotation.NonNull;
 
@@ -37,7 +38,7 @@ public class CommonFunc {
      * Get uri to any resource type
      *
      * @param context context
-     * @param resId resource id
+     * @param resId   resource id
      * @return Uri to resource by given id Or null if error occurred
      * @throws Resources.NotFoundException if the given ID does not exist.
      * @see <a href="https://stackoverflow.com/a/36062748/7017299">Stack overflow</a>
@@ -64,7 +65,7 @@ public class CommonFunc {
      * This method using {@link CommonFunc#getId(String, Class)} and {@link CommonFunc#getUriFromResource(Context, int)}
      * </p>
      *
-     * @param context context
+     * @param context      context
      * @param resourceName resource type name
      * @return Uri to resource by given id Or null if error occurred
      * @see CommonFunc#getId(String, Class)
@@ -81,6 +82,23 @@ public class CommonFunc {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * @param str
+     * @return
+     * @see <a href="https://thisisnew-storage.tistory.com/3">Tistory blog</a>
+     */
+    public static boolean isStringValid(String str) {
+        //Under java version 6
+        // return !(str == null || str.trim().length() == 0);
+
+        //Over java version 6
+        return !(str == null || str.trim().isEmpty());
+
+        //Over java version 11
+        //return !(str == null || str.isBlank());
+
     }
 }
 

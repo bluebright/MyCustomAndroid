@@ -49,13 +49,9 @@ public class LanguageContextWrapper //extends ContextWrapper
     public static Context wrap(Context context) {
         PreferenceController mPreferenceController = new PreferenceController(context.getApplicationContext(), null, Context.MODE_PRIVATE);
         Configuration config = context.getResources().getConfiguration();
-        Locale sysLocale;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            sysLocale = getSystemLocale(config);
-        } else {
-            sysLocale = getSystemLocaleLegacy(config);
-        }
+        Locale sysLocale = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+                ? getSystemLocale(config)
+                : getSystemLocaleLegacy(config);
 
         String prefLanguage = mPreferenceController.getString(KeyConstants.KEY_LANGUAGE);
         String sysLanguage = sysLocale.getLanguage();
@@ -91,13 +87,9 @@ public class LanguageContextWrapper //extends ContextWrapper
      */
     public static String getAppLanguage(Context context) {
         Configuration config = context.getResources().getConfiguration();
-        Locale sysLocale;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            sysLocale = getSystemLocale(config);
-        } else {
-            sysLocale = getSystemLocaleLegacy(config);
-        }
+        Locale sysLocale = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+                ? getSystemLocale(config)
+                : getSystemLocaleLegacy(config);
 
         return sysLocale.getLanguage();
     }

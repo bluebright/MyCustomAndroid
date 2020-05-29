@@ -41,19 +41,23 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         contentMainBinding = binding.contentMain;
 
+        //
         setSupportActionBar(binding.toolbar);
 
         application = (MyApplication) getApplication();
 
+        //
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, binding.drawerLayout, binding.toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         binding.drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        //
         binding.navView.setNavigationItemSelectedListener(this);
 
 
@@ -63,13 +67,13 @@ public class MainActivity extends AppCompatActivity
                 .request()
                 .subscribe(tedPermissionResult -> {
                     if (tedPermissionResult.isGranted()) {
-                        if (application.locationHandler.isGpsEnabled()) {
+                        if (application.myLocationManager.isGpsEnabled()) {
                             Toast.makeText(MainActivity.this,
                                     R.string.string_gps_enabled,
                                     Toast.LENGTH_SHORT)
                                     .show();
                         } else {
-                            application.locationHandler.startGpsSettingActivity(MainActivity.this, ACTIVITY_RESULT_GPS);
+                            application.myLocationManager.startGpsSettingActivity(MainActivity.this, ACTIVITY_RESULT_GPS);
                         }
                     } else {
                         Toast.makeText(MainActivity.this,
@@ -86,8 +90,8 @@ public class MainActivity extends AppCompatActivity
                 .request()
                 .subscribe(tedPermissionResult -> {
                     if (tedPermissionResult.isGranted()) {
-                        Pair<Integer, Boolean> networkPair = application.networkHandler.getNetworkTypeAndState();
-                        application.networkHandler.turnWiFi(!networkPair.second);
+                        Pair<Integer, Boolean> networkPair = application.myNetworkManager.getNetworkTypeAndState();
+                        application.myNetworkManager.turnWiFi(!networkPair.second);
                     } else {
                         Toast.makeText(MainActivity.this,
                                 R.string.string_permission_denied,
@@ -193,7 +197,7 @@ public class MainActivity extends AppCompatActivity
             case ACTIVITY_RESULT_GPS:
                 Toast.makeText(MainActivity.this,
                         //getString(R.string.string_current_gps_state) + application.locationHandler.isGpsEnabled(),
-                        getString(R.string.string_current_gps_state2, application.locationHandler.isGpsEnabled()),
+                        getString(R.string.string_current_gps_state2, application.myLocationManager.isGpsEnabled()),
                         Toast.LENGTH_SHORT)
                         .show();
                 break;

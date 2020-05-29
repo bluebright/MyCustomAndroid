@@ -20,9 +20,9 @@ import java.lang.annotation.RetentionPolicy;
  * http://sunjin220.blog.me/221149414526
  */
 
-public class NetworkHandler {
+public class MyNetworkManager {
 
-    private static final String TAG = NetworkHandler.class.getSimpleName();
+    private static final String TAG = MyNetworkManager.class.getSimpleName();
 
     public static final int NETWORK_TYPE_NONE = 1111;
     public static final int NETWORK_TYPE_WIFI = 2222;
@@ -44,7 +44,7 @@ public class NetworkHandler {
     private boolean wifiManagerValid;
 
 
-    NetworkHandler(Context context) {
+    MyNetworkManager(Context context) {
         connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
