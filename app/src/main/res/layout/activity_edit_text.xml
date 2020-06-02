@@ -4,6 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="kr.co.bluebright.www.myexperiment.main.EditTextActivity">
 
+    <data>
+
+        <import type="androidx.databinding.ObservableField" />
+
+        <variable
+            name="input_filter_model"
+            type="kr.co.bluebright.www.myexperiment.common.util.InputFilterValueObserver" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,6 +25,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.333" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_vertical_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guide_vertical_right"
@@ -40,19 +57,99 @@
             android:layout_margin="@dimen/basic_margin_small_1"
             android:hint="@string/hint_text"
             android:inputType="text"
-            app:layout_constraintEnd_toStartOf="@+id/btn_confirm"
+            app:layout_constraintEnd_toEndOf="@+id/txt_title_edit_1"
             app:layout_constraintStart_toStartOf="@+id/txt_title_edit_1"
             app:layout_constraintTop_toBottomOf="@+id/txt_title_edit_1" />
 
-        <Button
-            android:id="@+id/btn_confirm"
+
+        <TextView
+            android:id="@+id/text_title_char_sequence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/basic_margin_small_1"
-            android:text="@string/string_confirm"
-            app:layout_constraintBaseline_toBaselineOf="@+id/edit_1"
-            app:layout_constraintEnd_toEndOf="@+id/txt_title_edit_1"
-            app:layout_constraintStart_toEndOf="@+id/edit_1" />
+            android:text="Source"
+            app:layout_constraintEnd_toStartOf="@+id/text_char_sequence"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_1" />
+
+        <TextView
+            android:id="@+id/text_char_sequence"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/basic_margin_small_1"
+            android:text="@{String.valueOf(input_filter_model.charSequence)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text_title_char_sequence"
+            app:layout_constraintTop_toBottomOf="@+id/edit_1" />
+
+
+        <include
+            android:id="@+id/area_start"
+            layout="@layout/item_observe_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/basic_margin_small_1"
+            app:bindTitle='@{"start"}'
+            app:bindValue="@{String.valueOf(input_filter_model.start)}"
+            app:bindValueConfirm="@{input_filter_model.char_start}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_title_char_sequence" />
+
+        <include
+            android:id="@+id/area_end"
+            layout="@layout/item_observe_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/basic_margin_small_1"
+            app:bindTitle='@{"end"}'
+            app:bindValue="@{String.valueOf(input_filter_model.end)}"
+            app:bindValueConfirm="@{input_filter_model.char_end}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/area_start" />
+
+        <include
+            android:id="@+id/area_dstart"
+            layout="@layout/item_observe_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/basic_margin_small_1"
+            app:bindTitle='@{"dstart"}'
+            app:bindValue="@{String.valueOf(input_filter_model.dstart)}"
+            app:bindValueConfirm="@{input_filter_model.char_dstart}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/area_end" />
+
+        <include
+            android:id="@+id/area_dend"
+            layout="@layout/item_observe_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/basic_margin_small_1"
+            app:bindTitle='@{"dend"}'
+            app:bindValue="@{String.valueOf(input_filter_model.dend)}"
+            app:bindValueConfirm="@{input_filter_model.char_dend}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/area_dstart" />
+
+        <include
+            android:id="@+id/area_dest"
+            layout="@layout/item_observe_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/basic_margin_small_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/area_dend" />
 
         <TextView
             android:id="@+id/txt_title_edit_2"
@@ -62,7 +159,7 @@
             android:text="@string/string_title_edit_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_1" />
+            app:layout_constraintTop_toBottomOf="@+id/area_dest" />
 
         <EditText
             android:id="@+id/edit_2"
